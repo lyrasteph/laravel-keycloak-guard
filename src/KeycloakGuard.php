@@ -135,14 +135,14 @@ class KeycloakGuard implements Guard
     $token_role_property = $this->config['token_role_property'];
     $bpRoles = (array)$this->decodedToken->{$token_role_property};
     } catch (Exception $e) {
-        throw new ResourceAccessNotAllowedException("No " . $this->config['token_role_property'] . " found or other Error");
+        // throw new ResourceAccessNotAllowedException("No " . $this->config['token_role_property'] . " found or other Error");
     }
 
     // Extract roles from first BP
     $this->roles = array_shift($bpRoles);
 
     if (!is_array($this->roles)) {
-      throw new ResourceAccessNotAllowedException("The decoded JWT token has not a valid roles");
+      // throw new ResourceAccessNotAllowedException("The decoded JWT token has not a valid roles");
     }
 
 }
